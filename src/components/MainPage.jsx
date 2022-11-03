@@ -41,9 +41,15 @@ const MainPage = () => {
     return savedSearch
   }
 
+  const changePage = async (num) => {
+    setPage((prevState) => prevState + num)
+    const newSearch = await APICall(rover, pickedTime, page)
+    setPhotos([...newSearch])
+    createCameraButtons(newSearch)
+  }
+
   const filterPics = async (camName) => {
     const newPhotos = getStoredPics()
-    // setPhotos([...newPhotos])
 
     if (camName !== 'Clear Filter') {
       const filteredPhotos = newPhotos.filter(
@@ -113,12 +119,7 @@ const MainPage = () => {
             <button
               className="btn btn-success"
               disabled={page === 1}
-              onClick={async () => {
-                setPage((prevState) => prevState - 1)
-                const newSearch = await APICall(rover, pickedTime, page)
-                setPhotos([...newSearch])
-                createCameraButtons(newSearch)
-              }}
+              onClick={() => changePage(-1)}
             >
               <i className="fa-solid fa-backward"></i> Previous
             </button>
@@ -126,12 +127,7 @@ const MainPage = () => {
             <button
               className="btn btn-success"
               disabled={photos.length < 25}
-              onClick={async () => {
-                setPage((prevState) => prevState + 1)
-                const newSearch = await APICall(rover, pickedTime, page)
-                setPhotos([...newSearch])
-                createCameraButtons(newSearch)
-              }}
+              onClick={() => changePage(1)}
             >
               Next <i className="fa-solid fa-forward"></i>
             </button>
