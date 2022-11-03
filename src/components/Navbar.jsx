@@ -4,7 +4,6 @@ const Navbar = () => (
   <nav
     className="d-flex align-items-center"
     style={{
-      width: '100vw',
       height: '160px',
       background: 'rgb(255,255,255)',
       // eslint-disable-next-line no-dupe-keys

@@ -9,7 +9,10 @@ const PhotoCard = (data) => {
         alt={`Photo of Mars taken on ${data.data?.earth_date} by rover ${data.data?.rover?.name}`}
       />
       <div className="card-body">
-        <h5 className="card-title">{`Photo ID ${data.data?.id} by ${data.data?.rover?.name}`}</h5>
+        <h5 className="card-title">
+          {`Photo ID ${data.data?.id} by ${data.data?.rover?.name}`}{' '}
+          <i className="fa-regular fa-star"></i>
+        </h5>
         <h6 className="card-paragraph">
           {`Taken with ${data.data?.camera.full_name}`}{' '}
         </h6>
@@ -20,7 +23,7 @@ const PhotoCard = (data) => {
             className="btn btn-secondary"
             rel="noreferrer"
           >
-            Open it fullscreen
+            Full Screen
           </a>
         </div>
       </div>

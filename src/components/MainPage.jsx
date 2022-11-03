@@ -43,7 +43,7 @@ const MainPage = () => {
 
   const changePage = async (num) => {
     setPage((prevState) => prevState + num)
-    const newSearch = await APICall(rover, pickedTime, page)
+    const newSearch = await APICall(rover, pickedTime, page + num)
     setPhotos([...newSearch])
     createCameraButtons(newSearch)
   }
@@ -126,7 +126,7 @@ const MainPage = () => {
             <button className="btn btn-secondary">Page {page}</button>
             <button
               className="btn btn-success"
-              disabled={photos.length < 25}
+              disabled={JSON.parse(localStorage.getItem('searchData')) < 25}
               onClick={() => changePage(1)}
             >
               Next <i className="fa-solid fa-forward"></i>

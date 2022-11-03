@@ -52,7 +52,7 @@ const TimeSelector = ({ setdateType, setpickedTime }) => {
           Pick date type
         </option>
         <option value="sol">Sol (Mars)</option>
-        <option value="date">Date (Earth))</option>
+        <option value="date">Date (Earth)</option>
       </select>
       {timeValue === 'sol'
         ? (
@@ -66,7 +66,10 @@ const TimeSelector = ({ setdateType, setpickedTime }) => {
             id="solRange"
             onChange={handleSolChange}
           />
-          <p className="m-2 solp" style={{ width: '240px' }}>
+          <p
+            className="m-2 d-flex justify-content-center align-items-center solp"
+            style={{ width: '260px' }}
+          >
             <b>Sol day: {solValue || '?'}</b>
           </p>
         </>
