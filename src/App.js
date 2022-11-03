@@ -1,12 +1,12 @@
 import React from 'react'
 import Navbar from './components/Navbar'
 import './App.css'
-import SearchForm from './components/SearchForm'
+import MainPage from './components/MainPage'
 
 const App = () => (
   <>
     <Navbar />
-    <SearchForm />
+    <MainPage />
   </>
 )
 

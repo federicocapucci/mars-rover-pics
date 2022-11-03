@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const CamCard = ({ cam, filterPics }) => {
   return (
-    <div className="m-1">
+    <div className="mt-1 mb-3 mx-1">
       <a
         className={
           cam === 'Clear Filter' ? 'btn btn-success' : 'btn btn-secondary'

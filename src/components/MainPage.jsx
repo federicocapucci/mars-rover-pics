@@ -5,13 +5,15 @@ import APICall from '../services/APICall'
 // eslint-disable-next-line no-unused-vars
 import PhotoCard from './PhotoCard'
 import CamCard from './CamCard'
+import RoverInfo from './RoverInfo'
 
-const SearchForm = () => {
+const MainPage = () => {
   const [dateType, setdateType] = useState('')
   const [pickedTime, setpickedTime] = useState('')
   const [rover, setRover] = useState('')
   const [photos, setPhotos] = useState(null)
   const [cameras, setCamera] = useState([])
+  const [roverInfo, setRoverInfo] = useState(false)
   const [page, setPage] = useState(1)
 
   const handleSubmit = async (e) => {
@@ -19,6 +21,7 @@ const SearchForm = () => {
     const search = await APICall(rover, pickedTime)
     setPhotos([...search])
     createCameraButtons(search)
+    getRoverInfo(search)
     setPage(JSON.parse(localStorage.getItem('lastSearch')).page)
   }
 
@@ -26,6 +29,11 @@ const SearchForm = () => {
     const savedCams = [...new Set(search.map((item) => item.camera.full_name))]
     savedCams.push('Clear Filter')
     setCamera(savedCams)
+  }
+
+  const getRoverInfo = (search) => {
+    const currentRoverInfo = search[0].rover
+    setRoverInfo({ ...currentRoverInfo })
   }
 
   const getStoredPics = () => {
@@ -56,8 +64,8 @@ const SearchForm = () => {
         <div
           className={
             window.innerWidth > 800
-              ? 'd-flex flex-row justify-content-center align-items-center mb-5'
-              : 'd-flex flex-column justify-content-center align-items-center mb-5'
+              ? 'd-flex flex-row justify-content-center align-items-center mb-2'
+              : 'd-flex flex-column justify-content-center align-items-center mb-2'
           }
         >
           <RoverSelector setRover={setRover} />
@@ -76,13 +84,21 @@ const SearchForm = () => {
           </div>
         </div>
       </form>
+      {roverInfo
+        ? (
+        <>
+          <RoverInfo data={roverInfo} />
+          <hr />
+        </>
+          )
+        : null}
       {photos && photos.length !== 0
         ? (
         <>
           <p className="text-center">
             <b> Filter by Camera </b>
           </p>
-          <div className="p-2 d-flex justify-content-center flex-wrap">
+          <div className="d-flex justify-content-center flex-wrap">
             {cameras && cameras?.length > 1
               ? cameras.map((cam, i) => (
                   <CamCard key={i} cam={cam} filterPics={filterPics} />
@@ -92,6 +108,7 @@ const SearchForm = () => {
           <p className="text-center">
             <b> {photos.length} pictures available </b>
           </p>
+          <hr />
           <div className="d-flex justify-content-center gap-5  flex-wrap">
             <button
               className="btn btn-success"
@@ -139,4 +156,4 @@ const SearchForm = () => {
   )
 }
 
-export default SearchForm
+export default MainPage
