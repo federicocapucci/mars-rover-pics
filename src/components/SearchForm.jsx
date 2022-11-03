@@ -17,12 +17,14 @@ const SearchForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const search = await APICall(rover, pickedTime)
-    setPhotos(search)
-    const savedCams = [...new Set(photos?.map((item) => item.camera.full_name))]
+    setPhotos([...search])
+    createCameraButtons(search)
+    setPage(JSON.parse(localStorage.getItem('lastSearch')).page)
+  }
+  const createCameraButtons = (search) => {
+    const savedCams = [...new Set(search.map((item) => item.camera.full_name))]
     savedCams.push('Clear Filter')
     setCamera(savedCams)
-    setPage(JSON.parse(localStorage.getItem('lastSearch')).page)
-    console.log(page)
   }
 
   const getStoredPics = () => {
@@ -31,11 +33,13 @@ const SearchForm = () => {
   }
 
   const filterPics = async (camName) => {
-    setPhotos(getStoredPics())
+    const newPhotos = getStoredPics()
+    setPhotos([...newPhotos])
     if (camName !== 'Clear Filter') {
-      setTimeout(() => {
-        setPhotos(photos.filter((photo) => photo.camera.full_name === camName))
-      }, 10)
+      const filteredPhotos = photos.filter(
+        (photo) => photo.camera.full_name === camName
+      )
+      setPhotos([...filteredPhotos])
     } else {
       console.log('clearing filter')
     }
@@ -77,7 +81,7 @@ const SearchForm = () => {
             <b> Filter by Camera </b>
           </p>
           <div className="p-2 d-flex justify-content-center flex-wrap">
-            {cameras?.length > 1
+            {cameras && cameras?.length > 1
               ? cameras.map((cam, i) => (
                   <CamCard key={i} cam={cam} filterPics={filterPics} />
               ))
@@ -91,9 +95,10 @@ const SearchForm = () => {
               className="btn btn-success"
               disabled={page === 1}
               onClick={async () => {
-                const newpage = page - 1
-                setPage(newpage)
-                setPhotos(await APICall(rover, pickedTime, page))
+                setPage((prevState) => prevState - 1)
+                const newSearch = await APICall(rover, pickedTime, page)
+                setPhotos([...newSearch])
+                createCameraButtons()
               }}
             >
               <i className="fa-solid fa-backward"></i> Previous
@@ -103,9 +108,10 @@ const SearchForm = () => {
               className="btn btn-success"
               disabled={photos.length < 25}
               onClick={async () => {
-                const newpage = page + 1
-                setPage(newpage)
-                setPhotos(await APICall(rover, pickedTime, page))
+                setPage((prevState) => prevState + 1)
+                const newSearch = await APICall(rover, pickedTime, page)
+                setPhotos([...newSearch])
+                createCameraButtons()
               }}
             >
               Next <i className="fa-solid fa-forward"></i>
