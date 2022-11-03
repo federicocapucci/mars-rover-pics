@@ -21,6 +21,7 @@ const SearchForm = () => {
     createCameraButtons(search)
     setPage(JSON.parse(localStorage.getItem('lastSearch')).page)
   }
+
   const createCameraButtons = (search) => {
     const savedCams = [...new Set(search.map((item) => item.camera.full_name))]
     savedCams.push('Clear Filter')
@@ -34,14 +35,15 @@ const SearchForm = () => {
 
   const filterPics = async (camName) => {
     const newPhotos = getStoredPics()
-    setPhotos([...newPhotos])
+    // setPhotos([...newPhotos])
+
     if (camName !== 'Clear Filter') {
-      const filteredPhotos = photos.filter(
+      const filteredPhotos = newPhotos.filter(
         (photo) => photo.camera.full_name === camName
       )
       setPhotos([...filteredPhotos])
     } else {
-      console.log('clearing filter')
+      setPhotos([...newPhotos])
     }
   }
 
@@ -98,7 +100,7 @@ const SearchForm = () => {
                 setPage((prevState) => prevState - 1)
                 const newSearch = await APICall(rover, pickedTime, page)
                 setPhotos([...newSearch])
-                createCameraButtons()
+                createCameraButtons(newSearch)
               }}
             >
               <i className="fa-solid fa-backward"></i> Previous
@@ -111,7 +113,7 @@ const SearchForm = () => {
                 setPage((prevState) => prevState + 1)
                 const newSearch = await APICall(rover, pickedTime, page)
                 setPhotos([...newSearch])
-                createCameraButtons()
+                createCameraButtons(newSearch)
               }}
             >
               Next <i className="fa-solid fa-forward"></i>
