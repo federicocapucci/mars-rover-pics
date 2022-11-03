@@ -90,13 +90,17 @@ const SearchForm = () => {
             <button
               className="btn btn-success"
               disabled={page === 1}
-              onClick={APICall(rover, pickedTime, page - 1)}
+              onClick={async () => {
+                setPhotos(await APICall(rover, pickedTime, page - 1))
+              }}
             >
               anterior
             </button>
             <button
               className="btn btn-success"
-              onClick={APICall(rover, pickedTime, page + 1)}
+              onClick={async () => {
+                setPhotos(await APICall(rover, pickedTime, page + 1))
+              }}
             >
               siguiente
             </button>
