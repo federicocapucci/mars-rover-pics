@@ -62,7 +62,7 @@ const SearchForm = () => {
           <div className="d-grid gap-2">
             <button
               type="submit"
-              className="btn btn-secondary"
+              className="btn btn-secondary solp"
               disabled={!dateType || !rover}
             >
               Search
@@ -98,7 +98,7 @@ const SearchForm = () => {
             >
               <i className="fa-solid fa-backward"></i> Previous
             </button>
-            <button className="btn btn-secondary">{page}</button>
+            <button className="btn btn-secondary">Page {page}</button>
             <button
               className="btn btn-success"
               disabled={photos.length < 25}

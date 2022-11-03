@@ -39,17 +39,21 @@ const TimeSelector = ({ setdateType, setpickedTime }) => {
       }
     >
       <select
-        className="form-select"
+        className="form-select text-center"
         aria-label="Select Rover"
         value={timeValue}
-        style={{ background: 'rgba(255,255,255,0.5)' }}
+        style={{
+          background: 'rgba(255,255,255,0.5)',
+          fontSize: '14px',
+          marginBottom: '10px'
+        }}
         onChange={handleTimeChange}
       >
         <option value="" defaultValue disabled>
-          Pick a date format
+          Pick date type
         </option>
-        <option value="sol">Sol (Mars Date format)</option>
-        <option value="date">Earth Date format</option>
+        <option value="sol">Sol (Mars)</option>
+        <option value="date">Date (Earth))</option>
       </select>
       {timeValue === 'sol'
         ? (
@@ -63,8 +67,8 @@ const TimeSelector = ({ setdateType, setpickedTime }) => {
             id="solRange"
             onChange={handleSolChange}
           />
-          <p className="m-2" style={{ width: '180px' }}>
-            <b>Sol day: {solValue || 0}</b>
+          <p className="m-2 solp" style={{ width: '240px' }}>
+            <b>Sol day: {solValue || '?'}</b>
           </p>
         </>
           )

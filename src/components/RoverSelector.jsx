@@ -15,16 +15,25 @@ const RoverSelector = ({ setRover }) => {
   }
 
   return (
-    <div className="m-2">
+    <div
+      className={
+        window.innerWidth > 800
+          ? 'd-flex flex-row justify-content-center align-items-center m-2'
+          : 'd-flex flex-column justify-content-center align-items-center m-2'
+      }
+    >
       <select
-        className="form-select"
-        style={{ background: 'rgba(255,255,255,0.5)' }}
+        className="form-select text-center"
+        style={{
+          background: 'rgba(255,255,255,0.5)',
+          fontSize: '14px'
+        }}
         aria-label="Select Rover"
         value={value}
         onChange={handleChange}
       >
         <option value="" defaultValue disabled>
-          Pick a rover
+          Pick the rover
         </option>
         <option value="curiosity">Curiosity</option>
         <option value="opportunity">Opportunity</option>
