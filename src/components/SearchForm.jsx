@@ -91,20 +91,24 @@ const SearchForm = () => {
               className="btn btn-success"
               disabled={page === 1}
               onClick={async () => {
-                setPage(page - 1)
+                const newpage = page - 1
+                setPage(newpage)
                 setPhotos(await APICall(rover, pickedTime, page))
               }}
             >
-              anterior
+              <i className="fa-solid fa-backward"></i> Previous
             </button>
+            <button className="btn btn-secondary">{page}</button>
             <button
               className="btn btn-success"
+              disabled={photos.length < 25}
               onClick={async () => {
-                setPage(page + 1)
+                const newpage = page + 1
+                setPage(newpage)
                 setPhotos(await APICall(rover, pickedTime, page))
               }}
             >
-              siguiente
+              Next <i className="fa-solid fa-forward"></i>
             </button>
           </div>
         </>
