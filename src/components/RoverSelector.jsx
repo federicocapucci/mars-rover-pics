@@ -18,6 +18,7 @@ const RoverSelector = ({ setRover }) => {
     <div className="m-2">
       <select
         className="form-select"
+        style={{ background: 'rgba(255,255,255,0.5)' }}
         aria-label="Select Rover"
         value={value}
         onChange={handleChange}
@@ -28,6 +29,7 @@ const RoverSelector = ({ setRover }) => {
         <option value="curiosity">Curiosity</option>
         <option value="opportunity">Opportunity</option>
         <option value="spirit">Spirit</option>
+        <option value="perseverance">Perseverance</option>
       </select>
     </div>
   )

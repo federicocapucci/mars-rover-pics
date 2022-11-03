@@ -31,11 +31,18 @@ const TimeSelector = ({ setdateType, setpickedTime }) => {
   }, [timeValue, solValue, dateValue])
 
   return (
-    <div className="m-2">
+    <div
+      className={
+        window.innerWidth > 800
+          ? 'd-flex flex-row justify-content-center align-items-center m-2'
+          : 'd-flex flex-column justify-content-center align-items-center m-2'
+      }
+    >
       <select
         className="form-select"
         aria-label="Select Rover"
         value={timeValue}
+        style={{ background: 'rgba(255,255,255,0.5)' }}
         onChange={handleTimeChange}
       >
         <option value="" defaultValue disabled>
@@ -48,6 +55,7 @@ const TimeSelector = ({ setdateType, setpickedTime }) => {
         ? (
         <>
           <input
+            style={{ width: '150px' }}
             type="range"
             className="form-range m-2"
             min="0"
@@ -55,7 +63,9 @@ const TimeSelector = ({ setdateType, setpickedTime }) => {
             id="solRange"
             onChange={handleSolChange}
           />
-          <p>Sol day: {solValue}</p>
+          <p className="m-2" style={{ width: '180px' }}>
+            <b>Sol day: {solValue || 0}</b>
+          </p>
         </>
           )
         : null}
@@ -63,7 +73,14 @@ const TimeSelector = ({ setdateType, setpickedTime }) => {
         ? (
         <input
           type="date"
-          className="m-3"
+          className="m-2 text-center"
+          style={{
+            background: 'rgba(255,255,255,0.5)',
+            borderRadius: '5px',
+            borderColor: 'gray',
+            width: '280px',
+            height: '35px'
+          }}
           value={dateValue}
           id="earthDate"
           onChange={handleDateChange}

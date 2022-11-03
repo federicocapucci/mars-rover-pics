@@ -5,9 +5,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url(https://media.idownloadblog.com/wp-content/uploads/2021/03/Mars-Perseverence-wallpaper-iPhone-AR72014-idownloadblog-rock-center.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.card {
+  max-width: 400px;
+  min-width: 220px;
+  background-color: rgba(255, 255, 255, 0.5);
 }
