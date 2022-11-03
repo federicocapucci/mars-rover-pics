@@ -65,7 +65,7 @@ const SearchForm = () => {
               className="btn btn-secondary solp"
               disabled={!dateType || !rover}
             >
-              Search
+              {rover && dateType ? 'Search' : 'Pick Options'}
             </button>
           </div>
         </div>

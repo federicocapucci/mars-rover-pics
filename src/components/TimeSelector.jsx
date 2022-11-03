@@ -44,8 +44,7 @@ const TimeSelector = ({ setdateType, setpickedTime }) => {
         value={timeValue}
         style={{
           background: 'rgba(255,255,255,0.5)',
-          fontSize: '14px',
-          marginBottom: '10px'
+          fontSize: '14px'
         }}
         onChange={handleTimeChange}
       >
