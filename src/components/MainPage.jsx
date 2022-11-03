@@ -18,6 +18,7 @@ const MainPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setPage(1)
     const search = await APICall(rover, pickedTime)
     setPhotos([...search])
     createCameraButtons(search)
@@ -32,7 +33,7 @@ const MainPage = () => {
   }
 
   const getRoverInfo = (search) => {
-    const currentRoverInfo = search[0].rover
+    const currentRoverInfo = search[0]?.rover
     setRoverInfo({ ...currentRoverInfo })
   }
 
@@ -126,7 +127,9 @@ const MainPage = () => {
             <button className="btn btn-secondary">Page {page}</button>
             <button
               className="btn btn-success"
-              disabled={JSON.parse(localStorage.getItem('searchData')) < 25}
+              disabled={
+                JSON.parse(localStorage.getItem('searchData')).length < 25
+              }
               onClick={() => changePage(1)}
             >
               Next <i className="fa-solid fa-forward"></i>
