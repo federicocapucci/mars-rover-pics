@@ -116,13 +116,13 @@ const MainPage = () => {
             <b> {photos.length} pictures available </b>
           </p>
           <hr />
-          <div className="d-flex justify-content-center gap-5  flex-wrap">
+          <div className="d-flex justify-content-center gap-3  flex-wrap">
             <button
               className="btn btn-success"
               disabled={page === 1}
               onClick={() => changePage(-1)}
             >
-              <i className="fa-solid fa-backward"></i> Previous
+              <i className="fa-solid fa-backward"></i> Prev
             </button>
             <button className="btn btn-secondary">Page {page}</button>
             <button
