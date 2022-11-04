@@ -4,7 +4,9 @@ const Navbar = () => (
   <nav
     className="d-flex align-items-center"
     style={{
-      height: '160px',
+      position: 'sticky',
+      zIndex: 1,
+      height: '120px',
       background: 'rgb(255,255,255)',
       // eslint-disable-next-line no-dupe-keys
       background:
@@ -18,7 +20,12 @@ const Navbar = () => (
       >
         Mars Rover
       </span>
-      <img src="favicon.ico" alt="icon" style={{ height: '30px' }} />
+      <img
+        src="favicon.ico"
+        className="rover"
+        alt="icon"
+        style={{ height: '30px', opacity: 0 }}
+      />
     </div>
   </nav>
 )

@@ -11,7 +11,6 @@ const PhotoCard = (data) => {
       <div className="card-body">
         <h5 className="card-title">
           {`Photo ID ${data.data?.id} by ${data.data?.rover?.name}`}{' '}
-          <i className="fa-regular fa-star"></i>
         </h5>
         <h6 className="card-paragraph">
           {`Taken with ${data.data?.camera.full_name}`}{' '}

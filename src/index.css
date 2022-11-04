@@ -18,6 +18,7 @@ input,
 
 body {
   margin: 0;
+  overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -31,4 +32,29 @@ body {
   max-width: 400px;
   min-width: 220px;
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.rover:hover {
+  animation: roverOut 5s linear 2s;
+}
+
+.rover {
+  position: relative;
+  right: 0;
+  animation-name: rover;
+  animation-duration: 6s;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rover {
+  0% {
+    right: 600px;
+    opacity: 0;
+  }
+  100% {
+    right: 0;
+    opacity: 1;
+  }
 }

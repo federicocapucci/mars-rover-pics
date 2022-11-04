@@ -23,7 +23,7 @@ const MainPage = () => {
     setPhotos([...search])
     createCameraButtons(search)
     getRoverInfo(search)
-    setPage(JSON.parse(localStorage.getItem('lastSearch')).page)
+    setPage(JSON.parse(localStorage.getItem('searchParams')).page)
   }
 
   const createCameraButtons = (search) => {
@@ -38,7 +38,7 @@ const MainPage = () => {
   }
 
   const getStoredPics = () => {
-    const savedSearch = JSON.parse(localStorage.getItem('lastRoverSearch'))
+    const savedSearch = JSON.parse(localStorage.getItem('searchData'))
     return savedSearch
   }
 
