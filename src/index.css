@@ -32,6 +32,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position-y: bottom;
 }
 
 .card {
