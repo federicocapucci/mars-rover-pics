@@ -5,6 +5,7 @@ const Navbar = () => (
     className="d-flex align-items-center"
     style={{
       position: 'sticky',
+      top: '0',
       zIndex: 1,
       height: '120px',
       background: 'rgb(255,255,255)',

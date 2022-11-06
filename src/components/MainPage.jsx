@@ -6,6 +6,7 @@ import APICall from '../services/APICall'
 import PhotoCard from './PhotoCard'
 import CamCard from './CamCard'
 import RoverInfo from './RoverInfo'
+import ScrollToTop from './ScrollToTop'
 
 const MainPage = () => {
   const [dateType, setdateType] = useState('')
@@ -151,6 +152,7 @@ const MainPage = () => {
               )
             : null}
       </div>
+      {photos && photos.length !== 0 ? <ScrollToTop /> : null}
     </div>
   )
 }
