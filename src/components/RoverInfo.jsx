@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const RoverInfo = ({ data }) => {
   return (
@@ -23,6 +23,14 @@ const RoverInfo = ({ data }) => {
       </div>
     </div>
   )
+}
+RoverInfo.propTypes = {
+  data: PropTypes.shape({
+    name: PropTypes.string,
+    status: PropTypes.string,
+    launch_date: PropTypes.string,
+    landing_date: PropTypes.string
+  }).isRequired
 }
 
 export default RoverInfo
