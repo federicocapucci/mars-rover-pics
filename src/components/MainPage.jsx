@@ -92,7 +92,7 @@ const MainPage = () => {
           </div>
         </div>
       </form>
-      {roverInfo
+      {roverInfo && photos && photos.length !== 0
         ? (
         <>
           <RoverInfo data={roverInfo} />
@@ -148,7 +148,10 @@ const MainPage = () => {
             )
           : photos && photos.length === 0
             ? (
-          <p> No results found for current rover/date combination</p>
+          <p className="card p-2 mt-5 text-center">
+            No results found for current rover/date combination. Try a different
+            one please
+          </p>
               )
             : null}
       </div>

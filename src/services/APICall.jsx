@@ -20,12 +20,17 @@ const APICall = async (rover, pickedTime, page = 1) => {
   }
 
   localStorage.setItem('searchParams', JSON.stringify(searchData))
-  const datos = await fetch(URL)
-    .then((response) => response.json())
-    .then((data) => {
-      return data.photos
-    })
-  localStorage.setItem('searchData', JSON.stringify(datos))
-  return datos
+  try {
+    const datos = await fetch(URL)
+      .then((response) => response.json())
+      .then((data) => {
+        return data.photos
+      })
+    localStorage.setItem('searchData', JSON.stringify(datos))
+    return datos
+  } catch (err) {
+    console.error(err)
+    return err.message
+  }
 }
 export default APICall
