@@ -14,11 +14,12 @@ const ScrollToTop = () => {
         className="btn btn-secondary btn-smooth solp"
         style={{
           position: 'fixed',
-          bottom: '-4px',
+          bottom: '-8px',
           left: '50%',
           transform: 'translate(-50%,0)',
-          width: '160px',
-          color: 'white'
+          width: '80px',
+          color: 'white',
+          borderColor: 'white'
         }}
       >
         <i className="fa-solid fa-chevron-up"></i>
