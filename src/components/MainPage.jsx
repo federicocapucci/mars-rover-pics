@@ -7,6 +7,7 @@ import PhotoCard from './PhotoCard'
 import CamCard from './CamCard'
 import RoverInfo from './RoverInfo'
 import ScrollToTop from './ScrollToTop'
+import Footer from './Footer'
 
 const MainPage = () => {
   const [dateType, setdateType] = useState('')
@@ -156,37 +157,7 @@ const MainPage = () => {
             : null}
       </div>
       {photos && photos.length !== 0 ? <ScrollToTop /> : null}
-      <a
-        className="textBorder"
-        style={{
-          fontSize: '0.8rem',
-          textDecoration: 'none',
-          textAlign: 'center',
-          position: 'fixed',
-          bottom: '5px',
-          left: '50%',
-          transform: 'translate(-50%,0)',
-          color: 'white',
-          opacity: '0.6'
-        }}
-      >
-        {new Date().getFullYear()}° By{' '}
-        <a
-          className="textBorder"
-          style={{
-            fontSize: '0.8rem',
-            textDecoration: 'none',
-            color: 'orange',
-            fontWeight: 'bold',
-            opacity: '0.8'
-          }}
-          href="https://github.com/federicocapucci/mars-rover-pics"
-          target={'_blank'}
-          rel="noreferrer"
-        >
-          FC
-        </a>
-      </a>
+      <Footer />
     </div>
   )
 }

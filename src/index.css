@@ -40,18 +40,20 @@ body {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-.rover:hover {
-  animation: roverOut 5s linear 2s;
-}
-
 .rover {
   position: relative;
   right: 0;
   animation-name: rover;
-  animation-duration: 6s;
+  animation-duration: 4s;
   animation-timing-function: ease;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+  cursor: pointer;
+}
+
+.rover:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s linear;
 }
 
 @keyframes rover {

@@ -26,6 +26,7 @@ const Navbar = () => (
         className="rover"
         alt="icon"
         style={{ height: '30px', opacity: 0 }}
+        onClick={() => window.location.reload()}
       />
     </div>
   </nav>
