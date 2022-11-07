@@ -67,8 +67,8 @@ const TimeSelector = ({ setdateType, setpickedTime }) => {
             onChange={handleSolChange}
           />
           <p
-            className="m-2 d-flex justify-content-center align-items-center solp"
-            style={{ width: '260px' }}
+            className="m-2 d-flex justify-content-center align-items-center solp textBorder"
+            style={{ width: '260px', color: 'white' }}
           >
             <b>Sol day: {solValue || '?'}</b>
           </p>
