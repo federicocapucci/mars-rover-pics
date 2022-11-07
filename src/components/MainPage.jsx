@@ -104,8 +104,12 @@ const MainPage = () => {
       {photos && photos.length !== 0
         ? (
         <>
-          <p className="text-center">
-            <b> Filter by Camera </b>
+          <p
+            className="mx-3 solp textBorder text-center"
+            style={{ color: 'rgba(255,255,255,0.9)' }}
+          >
+            <i className="fa-solid fa-filter"></i> by{' '}
+            <i className="fa-solid fa-camera"></i>
           </p>
           <div className="d-flex justify-content-center flex-wrap">
             {cameras && cameras?.length > 1
@@ -114,7 +118,10 @@ const MainPage = () => {
               ))
               : ''}
           </div>
-          <p className="text-center">
+          <p
+            className="mx-3 solp textBorder text-center"
+            style={{ color: 'rgba(255,255,255,0.9)' }}
+          >
             <b> {photos.length} pictures available </b>
           </p>
           <hr />

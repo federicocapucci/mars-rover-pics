@@ -5,20 +5,29 @@ const RoverInfo = ({ data }) => {
   return (
     <div className="row mb-3">
       <div className="d-flex justify-content-center align-items-center flex-wrap">
-        <p className="me-2 solp">
-          <b>Rover Name:</b> {data.name}
+        <p
+          className="ms-3 solp textBorder"
+          style={{ color: 'rgba(255,255,255,0.9)' }}
+        >
+          <i className="fa-solid fa-shuttle-space"></i> : {data.name}
         </p>
-        <p className="mx-2 solp">
-          {' '}
-          <b>Status :</b> {data.status}
+        <p
+          className="mx-3 solp textBorder"
+          style={{ color: 'rgba(255,255,255,0.9)' }}
+        >
+          <i className="fa-solid fa-wrench"></i> : {data.status}
         </p>
-        <p className="mx-2 solp">
-          {' '}
-          <b>Launched on :</b> {data.launch_date}
+        <p
+          className="mx-3 solp textBorder"
+          style={{ color: 'rgba(255,255,255,0.9)' }}
+        >
+          <i className="fa-brands fa-space-awesome"></i> : {data.launch_date}
         </p>
-        <p className="ms-2 solp">
-          {' '}
-          <b>Landed on :</b> {data.landing_date}
+        <p
+          className="me-3 solp textBorder"
+          style={{ color: 'rgba(255,255,255,0.9)' }}
+        >
+          <i className="fa-solid fa-parachute-box"></i> : {data.landing_date}
         </p>
       </div>
     </div>
