@@ -13,8 +13,8 @@ const mockData = {
 
 test('renders content', () => {
   const component = render(<RoverInfo data={mockData} />)
-  component.getByText(mockData.name)
-  component.getByText(mockData.status)
-  component.getByText(mockData.launch_date)
-  component.getByText(mockData.landing_date)
+  component.getByText(mockData.name, { exact: false })
+  component.getByText(mockData.status, { exact: false })
+  component.getByText(mockData.launch_date, { exact: false })
+  component.getByText(mockData.landing_date, { exact: false })
 })

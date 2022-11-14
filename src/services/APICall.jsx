@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const APICall = async (rover, pickedTime, page = 1) => {
   let datePrefix = ''
   if (pickedTime?.length > 4) {
