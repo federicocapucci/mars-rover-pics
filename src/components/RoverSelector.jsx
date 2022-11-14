@@ -1,16 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 const RoverSelector = ({ setRover }) => {
-  const getInitialState = () => {
-    const value = ''
-    return value
-  }
-
-  const [value, setValue] = useState(getInitialState)
-
   const handleChange = (e) => {
-    setValue(e.target.value)
     setRover(e.target.value)
   }
 
@@ -29,7 +21,6 @@ const RoverSelector = ({ setRover }) => {
           fontSize: '14px'
         }}
         aria-label="Select Rover"
-        value={value}
         onChange={handleChange}
       >
         <option value="" defaultValue disabled>

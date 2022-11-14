@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import RoverSelector from './RoverSelector'
 import TimeSelector from './TimeSelector'
 import APICall from '../services/APICall'
-// eslint-disable-next-line no-unused-vars
 import PhotoCard from './PhotoCard'
 import CamCard from './CamCard'
 import RoverInfo from './RoverInfo'
