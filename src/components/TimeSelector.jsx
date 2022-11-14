@@ -10,6 +10,7 @@ const TimeSelector = ({ setdateType, setpickedTime }) => {
     setTimeValue(e.target.value)
     setdateType(e.target.value)
   }
+
   const handleSolChange = (e) => {
     setSolValue(e.target.value)
   }
@@ -54,8 +55,7 @@ const TimeSelector = ({ setdateType, setpickedTime }) => {
         <option value="sol">Sol (Mars)</option>
         <option value="date">Date (Earth)</option>
       </select>
-      {timeValue === 'sol'
-        ? (
+      {timeValue === 'sol' && (
         <>
           <input
             style={{ width: '150px' }}
@@ -73,10 +73,8 @@ const TimeSelector = ({ setdateType, setpickedTime }) => {
             <b>Sol day: {solValue || '?'}</b>
           </p>
         </>
-          )
-        : null}
-      {timeValue === 'date'
-        ? (
+      )}
+      {timeValue === 'date' && (
         <input
           type="date"
           className="m-2 text-center"
@@ -91,8 +89,7 @@ const TimeSelector = ({ setdateType, setpickedTime }) => {
           id="earthDate"
           onChange={handleDateChange}
         />
-          )
-        : null}
+      )}
     </div>
   )
 }

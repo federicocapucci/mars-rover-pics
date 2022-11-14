@@ -85,37 +85,34 @@ const MainPage = () => {
             <button
               type="submit"
               className="btn btn-secondary solp"
-              disabled={!dateType || !rover}
+              disabled={!dateType || !rover || !pickedTime}
             >
-              {rover && dateType ? 'Search' : 'Pick Options'}
+              {rover && dateType && pickedTime ? 'Search' : 'Pick Options'}
             </button>
           </div>
         </div>
       </form>
-      {roverInfo && photos && photos.length !== 0
-        ? (
+      {roverInfo && photos && photos.length !== 0 && (
         <>
           <RoverInfo data={roverInfo} />
           <hr />
         </>
-          )
-        : null}
-      {photos && photos.length !== 0
-        ? (
+      )}
+      {photos && photos.length !== 0 && (
         <>
           <p
             className="mx-3 solp textBorder text-center"
             style={{ color: 'rgba(255,255,255,0.9)' }}
           >
-            <i className="fa-solid fa-filter"></i> by{' '}
-            <i className="fa-solid fa-camera"></i>
+            <i className="fa-solid fa-filter" title="filter by camera"></i> by{' '}
+            <i className="fa-solid fa-camera" title="filter by camera"></i>
           </p>
           <div className="d-flex justify-content-center flex-wrap">
-            {cameras && cameras?.length > 1
-              ? cameras.map((cam, i) => (
-                  <CamCard key={i} cam={cam} filterPics={filterPics} />
-              ))
-              : ''}
+            {cameras &&
+              cameras?.length > 1 &&
+              cameras.map((cam, i) => (
+                <CamCard key={i} cam={cam} filterPics={filterPics} />
+              ))}
           </div>
           <p
             className="mx-3 solp textBorder text-center"
@@ -144,10 +141,7 @@ const MainPage = () => {
             </button>
           </div>
         </>
-          )
-        : (
-            ''
-          )}
+      )}
       <div className="d-flex justify-content-center gap-5  flex-wrap">
         {photos && photos.length !== 0
           ? (
@@ -162,7 +156,7 @@ const MainPage = () => {
               )
             : null}
       </div>
-      {photos && photos.length !== 0 ? <ScrollToTop /> : null}
+      {photos && photos.length !== 0 && <ScrollToTop />}
       <Footer />
     </div>
   )
