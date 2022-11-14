@@ -19,7 +19,8 @@ const ScrollToTop = () => {
           transform: 'translate(-50%,0)',
           width: '80px',
           color: 'white',
-          borderColor: 'white'
+          borderColor: 'white',
+          opacity: '0.5'
         }}
       >
         <i className="fa-solid fa-chevron-up"></i>
